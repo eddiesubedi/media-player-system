@@ -5,3 +5,4 @@ coverage.*
 ._*
 *.pem
 *.log
+yarn.lock

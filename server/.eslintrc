@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "eslint-config-hapi",
+    "prettier"
+  ],
+  "plugins": [
+    "import",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "hapi/hapi-no-var": 0,
+    "prefer-arrow-callback": 0,
+  }
+}
