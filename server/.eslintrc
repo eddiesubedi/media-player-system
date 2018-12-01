@@ -15,7 +15,8 @@
     "es6": true
   },
   "rules": {
-    "hapi/hapi-no-var": 0,
+    "comma-dangle": 0,
     "prefer-arrow-callback": 0,
+    "hapi/hapi-no-var": 0
   }
 }

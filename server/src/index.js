@@ -7,12 +7,9 @@ var launchServer = async function () {
   const server = Hapi.server({
     port: 3000,
     host: 'localhost',
-    routes: {
-      cors: {
-        origin: ['*'],
-      }
-    }
   });
+
+  server.route(require("./api/home/get_home"));
 
   await server.start();
   console.log(`Server started at ${server.info.uri}`);
