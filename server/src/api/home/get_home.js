@@ -6,6 +6,7 @@ module.exports = {
   method: 'GET',
   path: '/api/v1/home',
   config: {
+    auth: 'jwt',
     pre: [
       [{
           method: Query.getWatchList,
