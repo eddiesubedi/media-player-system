@@ -6,7 +6,6 @@ require('dotenv').config();
 
 var validate = function (decoded, request) {
 
-  console.log(decoded)
   return {
     isValid: true
   }
@@ -30,6 +29,7 @@ var launchServer = async function () {
   server.auth.default('jwt');
 
   server.route(require("./api/home/get_home"));
+  server.route(require("./api/home/get_mp4"));
   server.route(require("./api/auth/routes/post_signup"));
   server.route(require("./api/auth/routes/post_login"));
 
