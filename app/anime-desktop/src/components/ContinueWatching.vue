@@ -13,7 +13,7 @@
         Naofumi and his party head there to deliver medicine.
       </p>
       <div class="btns">
-        <svg viewBox="0 0 56 56" class="play">
+        <svg viewBox="0 0 56 56" class="btns__play">
           <!-- eslint-disable-->
           <path
             fill="#FFF"
@@ -24,14 +24,38 @@
           ></path>
           <!-- eslint-enable-->
         </svg>
-        <div class="text">Continue Watching</div>
+        <div class="btns__text">Continue Watching</div>
+        <div class="detailIcon">
+          <div class="detailIcon__lines">
+            <span class="detailIcon__line-1"></span>
+            <span class="detailIcon__line-2"></span>
+            <span class="detailIcon__line-3"></span>
+          </div>
+        </div>
+        <div class="addIcon" :class="{ added: onWatchList }" @click="toggleWatchList">
+          <div class="addIcon__lines" :class="{ added: onWatchList }">
+            <span class="addIcon__line-1"></span>
+            <span class="addIcon__line-2"></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      onWatchList: false,
+    };
+  },
+  methods: {
+    toggleWatchList() {
+      this.onWatchList = !this.onWatchList;
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -79,10 +103,15 @@ export default {};
   margin-top: 32px;
   display: flex;
   align-items: center;
-  .play {
+  &__play {
     width: 60px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
   }
-  .text {
+  &__play:hover {
+    transform: scale(1.1);
+  }
+  &__text {
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 0.5px;
@@ -91,7 +120,101 @@ export default {};
     margin-left: 16px;
   }
 }
-
+.detailIcon {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  box-shadow: inset 0 0 0 2px hsla(0, 0%, 100%, 0.4);
+  margin-left: 25px;
+  transition: box-shadow 0.2s ease-in, transform 0.2s ease-in;
+  cursor: pointer;
+  &__lines {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+  }
+  &__line-1 {
+    width: 16px !important;
+  }
+  &__line-2 {
+    transform: rotate(45deg) translateY(-5.25px);
+  }
+  &__line-3 {
+    transform: rotate(135deg) translateY(-5.25px);
+  }
+  &__line-1,
+  &__line-2,
+  &__line-3 {
+    background-color: white;
+    position: absolute;
+    width: 12px;
+    height: 2px;
+  }
+}
+.detailIcon:hover {
+  box-shadow: inset 0 0 0 2px #fff;
+  transform: scale(1.1);
+}
+.addIcon {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  box-shadow: inset 0 0 0 2px hsla(0, 0%, 100%, 0.4);
+  margin-left: 15px;
+  transition: box-shadow 0.2s ease-in, transform 0.2s ease-in,
+    background-color 0.2s ease-in;
+  cursor: pointer;
+  &__lines {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    transition: transform 0.2s ease;
+  }
+  &__line-1 {
+    transform: rotate(90deg);
+  }
+  &__lines.added {
+    transform: translateY(-2.25px) rotate(45deg);
+  }
+  &__lines.added &__line-1 {
+    transform: rotate(90deg) translateY(-3.25px);
+    background-color: hsla(var(--hue), 100%, 60%, 1);
+  }
+  &__lines.added &__line-2 {
+    width: 8px;
+    transform: translateY(7.25px);
+    background-color: hsla(var(--hue), 100%, 60%, 1);
+  }
+  &__line-1,
+  &__line-2 {
+    background-color: white;
+    position: absolute;
+    width: 16px;
+    height: 2px;
+  }
+}
+.addIcon.added {
+  background-color: white;
+}
+.addIcon:hover {
+  box-shadow: inset 0 0 0 2px #fff;
+  transform: scale(1.1);
+}
+.addIcon.added:hover .addIcon__lines.added {
+  top: 57%;
+  transition: transform 0.2s ease;
+}
+.addIcon.added:hover .addIcon__line-1 {
+  transform: rotate(90deg);
+}
+.addIcon.added:hover .addIcon__line-2 {
+  width: 16px;
+  transform: translateY(0);
+}
 .overlay-color-top {
   background-image: linear-gradient(
       180deg,
