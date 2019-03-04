@@ -1,16 +1,17 @@
 <template>
-  <div class="container" style="--hue:0;">
+  <div class="container" style="--hue:120;">
     <img class="image" src="https://cdn.masterani.me/wallpaper/0/3042B9280QvU.jpg">
     <div class="overlay-color-top"></div>
     <div class="overlay-color-bottom"></div>
     <div class="overlay-color-dark"></div>
     <div class="main">
-      <div class="main__title">The Rising of the Shield Hero</div>
-      <div class="main__japanese">盾の勇者の成り上がり</div>
-      <div class="main__ep">Episode 8 - Curse Series</div>
+      <div class="main__title">Classroom of the Elite</div>
+      <div class="main__japanese">ようこそ実力至上主義の教室へ～</div>
+      <div class="main__ep">Episode 1 - What is evil? Whatever springs from weakness.</div>
       <p class="main__desc">
-        After hearing of a village in the East that's being ravaged by an epidemic,
-        Naofumi and his party head there to deliver medicine.
+        Melancholy, unmotivated Ayanokoji Kiyotaka attends his first day at Tokyo Metropoiltan
+        Advanced Nuturing High School, a government-established institution for
+        training a generation of Japan's best and brightest.
       </p>
       <div class="btns">
         <svg viewBox="0 0 56 56" class="btns__play">
@@ -25,14 +26,19 @@
           <!-- eslint-enable-->
         </svg>
         <div class="btns__text">Continue Watching</div>
-        <div class="detailIcon">
+        <div class="detailIcon" v-tooltip.top="'Details'">
           <div class="detailIcon__lines">
             <span class="detailIcon__line-1"></span>
             <span class="detailIcon__line-2"></span>
             <span class="detailIcon__line-3"></span>
           </div>
         </div>
-        <div class="addIcon" :class="{ added: onWatchList }" @click="toggleWatchList">
+        <div
+          class="addIcon"
+          v-tooltip.top="toolTipText"
+          :class="{ added: onWatchList }"
+          @click="toggleWatchList"
+        >
           <div class="addIcon__lines" :class="{ added: onWatchList }">
             <span class="addIcon__line-1"></span>
             <span class="addIcon__line-2"></span>
@@ -48,13 +54,20 @@ export default {
   data() {
     return {
       onWatchList: false,
+      toolTipText: 'Add to watchlist',
     };
   },
   methods: {
     toggleWatchList() {
       this.onWatchList = !this.onWatchList;
+      if (this.onWatchList) {
+        this.toolTipText = 'Remove from watchlist';
+      } else {
+        this.toolTipText = 'Add to watchlist';
+      }
     },
   },
+  mounted() {},
 };
 </script>
 
@@ -91,6 +104,7 @@ export default {
     line-height: 27px;
     font-weight: 500;
     margin-bottom: 8px;
+    width: 35%;
   }
   &__desc {
     font-size: 18px;
@@ -182,12 +196,12 @@ export default {
   }
   &__lines.added &__line-1 {
     transform: rotate(90deg) translateY(-3.25px);
-    background-color: hsla(var(--hue), 100%, 60%, 1);
+    background-color: hsla(var(--hue), 100%, 30%, 1);
   }
   &__lines.added &__line-2 {
     width: 8px;
     transform: translateY(7.25px);
-    background-color: hsla(var(--hue), 100%, 60%, 1);
+    background-color: hsla(var(--hue), 100%, 30%, 1);
   }
   &__line-1,
   &__line-2 {
@@ -206,7 +220,6 @@ export default {
 }
 .addIcon.added:hover .addIcon__lines.added {
   top: 57%;
-  transition: transform 0.2s ease;
 }
 .addIcon.added:hover .addIcon__line-1 {
   transform: rotate(90deg);
@@ -260,6 +273,6 @@ export default {
 .overlay-color-top,
 .overlay-color-bottom {
   height: 90vh;
-  min-height: 500px;
+  min-height: 800px;
 }
 </style>

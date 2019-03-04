@@ -21,7 +21,8 @@
     "joi": "^14.3.0",
     "jsonwebtoken": "^8.4.0",
     "jwt-then": "^1.0.1",
-    "monk": "^6.0.6"
+    "monk": "^6.0.6",
+    "mp4upload-scraper": "^1.0.10"
   },
   "devDependencies": {
     "@types/hapi": "^17.8.0",

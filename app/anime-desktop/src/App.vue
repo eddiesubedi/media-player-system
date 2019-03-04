@@ -21,6 +21,7 @@ export default {
 <style lang="scss">
 @import "~normalize.css";
 @import url("./assets/fonts/font.scss");
+@import "~vue-directive-tooltip/src/css/index.scss";
 *,
 :after,
 :before {
@@ -38,10 +39,12 @@ body {
   font-size: 14px;
   line-height: 1.42857;
   background-color: #f5f6f7;
+  overflow-x: hidden;
 }
 body,
 html {
   height: 100%;
+  background-color: #1e2126;
 }
 a {
   color: #2b6ef4;
@@ -123,5 +126,19 @@ ol ul,
 ul ol,
 ul ul {
   margin-bottom: 0;
+}
+.vue-tooltip {
+  border-radius: 0px;
+  box-shadow: none;
+}
+.h-tooltip {
+  text-transform: uppercase;
+  font-family: Graphik, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  background-color: #292c33;
+}
+.vue-tooltip[x-placement^="top"] .tooltip-arrow {
+  border-top-color: #292c33;
 }
 </style>

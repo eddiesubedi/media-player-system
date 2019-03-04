@@ -11,8 +11,13 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'import/extensions': ['error', 'always', {
-      vue: 'never'
-    }]
+      vue: 'never',
+      js: 'never'
+    }],
+    'no-var': 'off',
+    'vars-on-top': 'off',
+    'block-scoped-var': 'off'
+
   },
   parserOptions: {
     parser: 'babel-eslint',
