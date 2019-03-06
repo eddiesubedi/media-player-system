@@ -67,7 +67,11 @@ export default {
     },
     calculate(i) {
       var left = this.numberOfSlides * this.slideGroup + 1;
-      var right = this.numberOfSlides * (this.slideGroup + 1);
+      var right = left + (this.numberOfSlides - 1);
+      if (right > this.animes.length) {
+        right = this.animes.length;
+        left = right - (this.numberOfSlides - 1);
+      }
       if (i + 1 >= left && i + 1 <= right) {
         var disabled = false;
       } else {
@@ -155,8 +159,8 @@ export default {
     }
   }
   &--disabled {
-    // opacity: 0;
-    // transition: opacity 0.6s ease;
+    opacity: 0;
+    transition: opacity 0.6s ease;
   }
 }
 .slide:hover {
