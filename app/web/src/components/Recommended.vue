@@ -12,8 +12,32 @@
         </div>
       </span>
     </div>
-    <button @click="left">left</button>
-    <button @click="right">Right</button>
+    <div class="btn">
+      <svg
+        viewBox="0 0 64 64"
+        class="btn__left"
+        @click="left"
+        :class="{'btn--disabled': leftBtnDisabled}"
+      >
+        <title>Previous</title>
+        <g transform="matrix(0 -1 -1 0 64 64)" fill="none" fill-rule="evenodd">
+          <circle fill="#121417" cx="32" cy="32" r="32"></circle>
+          <path d="M40.8 27.92l-9.2 9.2-9.2-9.2" stroke-width="2" stroke="#fff"></path>
+        </g>
+      </svg>
+      <svg
+        viewBox="0 0 64 64"
+        class="btn__right"
+        @click="right"
+        :class="{'btn--disabled': rightBtnDisabled}"
+      >
+        <title>Next</title>
+        <g transform="rotate(-90 32 32)" fill="none" fill-rule="evenodd">
+          <circle fill="#121417" cx="32" cy="32" r="32"></circle>
+          <path d="M40.8 27.92l-9.2 9.2-9.2-9.2" stroke-width="2" stroke="#fff"></path>
+        </g>
+      </svg>
+    </div>
   </div>
 </template>
 
@@ -27,6 +51,8 @@ export default {
       numberOfSlides: 5,
       slideAmount: 0,
       slideGroup: 0,
+      leftBtnDisabled: false,
+      rightBtnDisabled: false,
     };
   },
   watch: {
@@ -53,6 +79,7 @@ export default {
         }
         this.slideGroup = this.slideGroup + 1;
       }
+      this.disabledBtn();
     },
     left() {
       if (this.slideGroup > 0) {
@@ -64,6 +91,7 @@ export default {
         }
         this.slideGroup = this.slideGroup - 1;
       }
+      this.disabledBtn();
     },
     calculate(i) {
       var left = this.numberOfSlides * this.slideGroup + 1;
@@ -81,10 +109,23 @@ export default {
         'slide--disabled': disabled,
       };
     },
+    disabledBtn() {
+      if (this.slideGroup > 0) {
+        this.leftBtnDisabled = false;
+      } else {
+        this.leftBtnDisabled = true;
+      }
+      if (this.animes.length > (this.slideGroup + 1) * this.numberOfSlides) {
+        this.rightBtnDisabled = false;
+      } else {
+        this.rightBtnDisabled = true;
+      }
+    },
   },
   mounted() {
     this.updateCSSVariable('--Slider-items', this.numberOfSlides);
     this.updateCSSVariable('--Slide-amount', `${this.slideAmount}%`);
+    this.disabledBtn();
   },
 };
 </script>
@@ -168,5 +209,32 @@ export default {
   box-shadow: 0 24px 88px -8px rgba(4, 4, 5, 0.4);
   z-index: 2;
   transition-delay: 0.2s;
+}
+.btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: flex;
+  width: 95vw;
+  justify-content: space-between;
+  &__left,
+  &__right {
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 2px 4px 10px 0 rgba(4, 4, 5, 0.6);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+  &__left {
+    transform: translateX(-50%);
+  }
+  &__right {
+    transform: translateX(50%);
+  }
+  &--disabled {
+    opacity: 0;
+    cursor: default;
+  }
 }
 </style>
