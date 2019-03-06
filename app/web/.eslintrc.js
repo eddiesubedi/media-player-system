@@ -16,8 +16,9 @@ module.exports = {
     }],
     'no-var': 'off',
     'vars-on-top': 'off',
-    'block-scoped-var': 'off'
-
+    'block-scoped-var': 'off',
+    'eqeqeq': 'off',
+    'prefer-const': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint',

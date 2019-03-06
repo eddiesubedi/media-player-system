@@ -7,6 +7,7 @@
           <div class="slide__overlay" :style="{'--hue':anime.hue}"></div>
           <div class="slide__content">
             <div class="slide__content--title">{{anime.name}}</div>
+            <div class="slide__content--info">{{anime.info}}</div>
           </div>
         </div>
       </span>
@@ -41,17 +42,32 @@ export default {
       this.$el.style.setProperty(name, value);
     },
     right() {
-      this.slideAmount = this.slideAmount - 100;
-      this.slideGroup = this.slideGroup + 1;
+      if (this.animes.length > (this.slideGroup + 1) * this.numberOfSlides) {
+        let numberOfImagesShown = this.numberOfSlides * (this.slideGroup + 1);
+        let remaningImages = this.animes.length - numberOfImagesShown;
+        if (this.numberOfSlides <= remaningImages) {
+          this.slideAmount = this.slideAmount - 100;
+        } else {
+          let slideAmount = (100 / this.numberOfSlides) * remaningImages;
+          this.slideAmount = this.slideAmount - slideAmount;
+        }
+        this.slideGroup = this.slideGroup + 1;
+      }
     },
     left() {
-      this.slideAmount = this.slideAmount + 100;
-      this.slideGroup = this.slideGroup - 1;
+      if (this.slideGroup > 0) {
+        let leftOver = this.slideAmount % 100;
+        if (leftOver != 0) {
+          this.slideAmount = this.slideAmount - leftOver;
+        } else {
+          this.slideAmount = this.slideAmount + 100;
+        }
+        this.slideGroup = this.slideGroup - 1;
+      }
     },
     calculate(i) {
       var left = this.numberOfSlides * this.slideGroup + 1;
       var right = this.numberOfSlides * (this.slideGroup + 1);
-      console.log(left, right);
       if (i + 1 >= left && i + 1 <= right) {
         var disabled = false;
       } else {
@@ -75,16 +91,15 @@ export default {
   margin-right: 2vw;
 }
 .slider {
-  transform: translateX(calc(var(--Slide-amount)));
+  transform: translateX(var(--Slide-amount));
   transition: transform 0.6s ease-out;
   box-shadow: 0 24px 88px -8px rgba(4, 4, 5, 0.4);
-  // box-shadow: -3px -13px 77px 6px rgba(0, 0, 0, 0.37);
 }
 .slide-container {
   white-space: nowrap;
 }
 .slide {
-  height: 30vw;
+  height: calc(3.5vw * 5vh);
   position: relative;
   width: calc(100% / var(--Slider-items));
   white-space: nowrap;
@@ -120,16 +135,28 @@ export default {
     color: white;
     font-size: 2.5em;
     font-weight: 300;
-    line-height: 35px;
+
     top: 0;
     padding-left: 2vw;
     padding-right: 2vw;
-    transform: translateY(calc(65%));
+    top: 62%;
     white-space: pre-line;
+    &--title {
+      $lineHeight: 35px;
+      line-height: $lineHeight;
+      height: $lineHeight * 2; /* height is 2x line-height, so two lines will display */
+      overflow: hidden;
+      margin-bottom: 1.5vw;
+    }
+    &--info {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
   &--disabled {
-    opacity: 0;
-    transition: opacity 0.6s ease;
+    // opacity: 0;
+    // transition: opacity 0.6s ease;
   }
 }
 .slide:hover {

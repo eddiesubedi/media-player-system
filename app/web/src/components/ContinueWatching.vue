@@ -1,17 +1,18 @@
 <template>
-  <div class="container" style="--hue:120;">
-    <img class="image" src="https://cdn.masterani.me/wallpaper/0/3042B9280QvU.jpg">
+  <div class="container" style="--hue:220;">
+    <img class="image" src="https://cdn.masterani.me/wallpaper/0/2984D7lgN4j2.jpg">
     <div class="overlay-color-top"></div>
     <div class="overlay-color-bottom"></div>
     <div class="overlay-color-dark"></div>
     <div class="main">
-      <div class="main__title">Classroom of the Elite</div>
-      <div class="main__japanese">ようこそ実力至上主義の教室へ～</div>
-      <div class="main__ep">Episode 1 - What is evil? Whatever springs from weakness.</div>
+      <div class="main__title">That Time I Got Reincarnated as a Slime</div>
+      <div class="main__japanese">転生したらスライムだった件</div>
+      <div class="main__ep">Episode 22 - Conquering the Labyrinth</div>
       <p class="main__desc">
-        Melancholy, unmotivated Ayanokoji Kiyotaka attends his first day at Tokyo Metropoiltan
-        Advanced Nuturing High School, a government-established institution for
-        training a generation of Japan's best and brightest.
+        Corporate worker Mikami Satoru is stabbed by a random killer,
+        and is reborn to an alternate world. But he turns out to be
+        reborn a slime! Thrown into this new world with the name Rimuru,
+        he begins his quest to create a world that’s welcoming to all races.
       </p>
       <div class="btns">
         <svg viewBox="0 0 56 56" class="btns__play">

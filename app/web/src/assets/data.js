@@ -26,27 +26,27 @@ export default [{
 }, {
   name: 'Boku no Hero Academia',
   url: 'https://media.kitsu.io/anime/poster_images/11469/large.jpg?1456690771',
-  hue: 0,
+  hue: 60,
   info: '2016 | E1 - Izuku Midoriya: Origin',
 }, {
   name: 'Black Clover',
   url: 'https://media.kitsu.io/anime/poster_images/13209/large.jpg?1537803011',
-  hue: 0,
+  hue: 521,
   info: '2017 | E1 - Asta and Yuno',
 }, {
   name: 'Fullmetal Alchemist: Brotherhood',
   url: 'https://media.kitsu.io/anime/poster_images/3936/large.jpg?1419000387',
-  hue: 0,
+  hue: 226,
   info: '2009 | E1 - Fullmetal Alchemist',
 }, {
   name: 'Hunter x Hunter',
   url: 'https://media.kitsu.io/anime/poster_images/6448/large.jpg?1431828590',
-  hue: 0,
+  hue: 112,
   info: '2011 | E1 - Departure × And × Friends',
 }, {
   name: 'One Punch Man',
   url: 'https://media.kitsu.io/anime/poster_images/10740/large.jpg?1537885326',
-  hue: 0,
+  hue: 284,
   info: '2015 | E1 - The Strongest Man',
 }, {
   name: 'Attack on Titan',
@@ -56,36 +56,36 @@ export default [{
 }, {
   name: 'Death Note',
   url: 'https://media.kitsu.io/anime/poster_images/1376/large.jpg?1457383324',
-  hue: 0,
+  hue: 217,
   info: '2006 | E1 - Rebirth',
 }, {
   name: 'Nanatsu no Taizai',
   url: 'https://media.kitsu.io/anime/poster_images/8699/large.jpg?1416279336',
-  hue: 0,
+  hue: 159,
   info: '2014 | E1 - The Seven Deadly Sins',
 }, {
   name: 'Fairy Tail: Final Series',
   url: 'https://media.kitsu.io/anime/poster_images/13658/large.jpg?1537700876',
-  hue: 0,
+  hue: 67,
   info: '2018 | E1 - The Lamia Scale Thanksgiving Festival',
 }, {
   name: 'Kimi no Na wa.',
   url: 'https://media.kitsu.io/anime/poster_images/11614/large.jpg?1496075336',
-  hue: 0,
+  hue: 240,
   info: '2016 | Movie',
 }, {
   name: 'Naruto: Shippuuden',
   url: 'https://media.kitsu.io/anime/poster_images/1555/large.jpg?1489946654',
-  hue: 0,
+  hue: 38,
   info: '2007 | E1 - Homecoming',
 }, {
   name: 'Attack on Titan Season 3',
   url: 'https://media.kitsu.io/anime/poster_images/13569/large.jpg?1537701860',
-  hue: 0,
+  hue: 155,
   info: '2018 | E1 - Smoke Signal',
 }, {
   name: 'Boruto: Naruto Next Generations',
   url: 'https://media.kitsu.io/anime/poster_images/13051/large.jpg?1489962377',
-  hue: 0,
+  hue: 117,
   info: '2017 | E1 - Boruto Uzumaki!',
 }];
