@@ -144,7 +144,6 @@ export default {
   white-space: nowrap;
 }
 .slide {
-  height: calc(3.5vw * 5vh);
   position: relative;
   width: calc(100% / var(--Slider-items));
   white-space: nowrap;
@@ -221,6 +220,7 @@ export default {
   &__left,
   &__right {
     width: 50px;
+    height: 50px;
     border-radius: 50%;
     box-shadow: 2px 4px 10px 0 rgba(4, 4, 5, 0.6);
     cursor: pointer;
@@ -234,7 +234,7 @@ export default {
   }
   &--disabled {
     opacity: 0;
-    cursor: default;
+    pointer-events: none;
   }
 }
 </style>
