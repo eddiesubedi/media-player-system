@@ -1,4 +1,4 @@
-# anime-desktop
+# desktop
 
 ## Project setup
 ```
